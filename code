@@ -1,0 +1,27 @@
+#Code
+SELECT SUM(total_amount) AS total_sales FROM Orders;
+
+SELECT AVG(total_amount) AS avg_order_value FROM Orders;
+
+SELECT COUNT(*) AS total_orders FROM Orders;
+
+SELECT status, COUNT(*) AS order_count
+FROM Orders
+GROUP BY status;
+
+SELECT customer_id, AVG(total_amount) AS avg_spent
+FROM Orders
+GROUP BY customer_id;
+
+SELECT customer_id, SUM(total_amount) AS total_spent
+FROM Orders
+GROUP BY customer_id
+HAVING total_spent > 1000;
+
+SELECT customer_id, MAX(total_amount) AS highest_order
+FROM Orders
+GROUP BY customer_id;
+
+SELECT COUNT(DISTINCT customer_id) AS unique_customers FROM Orders;
+
+SELECT ROUND(AVG(total_amount), 2) AS rounded_avg FROM Orders;
